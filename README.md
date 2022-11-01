@@ -15,10 +15,10 @@ This is sample application, which was taken from [Node.js documentation](https:/
 2. Move into downloaded repo: ```cd DevOps_docker/```
 3. Build image: ```docker build . -t <image_name>```
 
-You can also get prebuild image from Docker Hub: ```docker pull rubylegend/node-web-app:latest```
+You can also get prebuilt image from Docker Hub: ```docker pull rubylegend/node-web-app:latest```
 
-## To push your build image to docker hub:
-1. Login into docker: ```docker login```
+## To push your built image to docker hub:
+1. Login into Docker Hub account: ```docker login```
 2. Push your image to docker hub: ```docker push <image_name>:latest```
 
 --------------------------------------
@@ -41,4 +41,4 @@ To stop container, run: ```docker stop node-app```
 
 --------------------------------------
 
-<center><p>Happy coding with Node.js!</p></center>
+Happy coding with Node.js!
