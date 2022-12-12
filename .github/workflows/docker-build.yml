@@ -69,13 +69,9 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Retrieve docker image
-        run: docker pull ${{ secrets.DOCKERHUB_LOGIN }}/node-web-app:latest
-      - name: Start container
-        run: docker run -d -p 80:80 -m 1g --cpus="1" --name node-app --rm rubylegend/node-web-app:latest
-      - name: Timeout to spun-up container
-        run: sleep 5
-      - name: Check, if container is working
-        run: curl -v localhost
+        run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/node-web-app:latest
+      - name: Start container and check
+        run: docker run -d -p 80:80 -m 1g --cpus="1" --name node-app --rm rubylegend/node-web-app:latest && sleep 60 && curl -v localhost
       - name: Delete artifact
         uses: geekyeggo/delete-artifact@v2
         with:
