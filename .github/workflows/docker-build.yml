@@ -1,4 +1,4 @@
-name: Lint 
+name: Docker build and push 
 
 on: 
   pull_request: 
@@ -10,7 +10,7 @@ env:
   NODE_VERSION: 18
 
 jobs: 
-  linting:
+  Linting:
     name: Linting 
     runs-on: ubuntu-latest 
     steps: 
@@ -27,3 +27,11 @@ jobs:
 
       - name: Code Linting
         run: npm run lint
+  Build:
+    needs: Linting
+    name: Build docker image
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v1
+        - name: Build the latest Docker image
+          run: docker build . --file Dockerfile --tag rubylegend/node-web-app:latest
